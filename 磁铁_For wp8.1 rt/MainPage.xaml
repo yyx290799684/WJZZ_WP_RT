@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="磁铁_For_wp8._1_rt.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:磁铁_For_wp8._1_rt"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Margin="15">
+        <ScrollViewer >
+            <ListView Name="EventListView"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Name="EventListViewGrid"  Background="#3e65ff" Margin="0,10" Holding="EventListViewGrid_Holding" >
+                            <StackPanel Name="EventStackPanel" Margin="10,5" >
+                                <Grid>
+                                    <TextBlock Text="{Binding EventFileTitle}" FontSize="30"></TextBlock>
+                                </Grid>
+                                <Line X1="0" X2="99999"  Stroke="Black" StrokeThickness="1"></Line>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3 *"></ColumnDefinition>
+                                        <ColumnDefinition Width="1 *"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" Margin="5">
+                                        <TextBlock Text="{Binding EventFileRemarks}" FontSize="18" TextWrapping="WrapWholeWords" ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel  Grid.Column="1" Margin="0,5"  Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <TextBlock Text="{Binding EventFileDateRemain}" FontSize="35"  HorizontalAlignment="Center" VerticalAlignment="Bottom"></TextBlock>
+                                        <TextBlock Text="天" FontSize="15" VerticalAlignment="Bottom"></TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                            <FlyoutBase.AttachedFlyout>
+                                <MenuFlyout>
+                                    <MenuFlyoutItem Name="PinMenuFlyout" Text="固定到&quot;开始&quot;屏幕" Click="PinMenuFlyout_Click"/>
+                                    <MenuFlyoutItem Name="EditMenuFlyout" Text="编辑" Click="EditMenuFlyout_Click"/>
+                                    <MenuFlyoutItem Name="DeleteMenuFlyout" Text="删除" Click="DeleteMenuFlyout_Click"/>
+                                </MenuFlyout>
+                            </FlyoutBase.AttachedFlyout>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+    </Grid>
+
+
+    <Page.BottomAppBar>
+        <CommandBar Opacity="0.8">
+            <AppBarButton Name="bar_add" Label="新增" Icon="Add" Click="bar_add_Click"></AppBarButton>
+            <!--显示按钮-->
+            <CommandBar.SecondaryCommands>
+                <!--隐藏菜单-->
+                <AppBarButton Label="给个好评吧" Click="bar_good_Click"></AppBarButton>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

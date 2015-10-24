@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="磁铁_For_wp8._1_rt.addpage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:磁铁_For_wp8._1_rt"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Margin="15">
+            <TextBox Name="eventnameTextBox" PlaceholderText="事件名称(非空)" TextChanged="eventnameTextBox_TextChanged"></TextBox>
+            <TextBox Name="remarksTextBox" TextWrapping="Wrap" PlaceholderText="备注"></TextBox>
+            <DatePicker Name="eventDatePicker" Header="事件日期"/>
+        </StackPanel>
+        <TextBlock Name="remindTextBlock" Visibility="Collapsed" Text="需要重新固定到开始屏幕才可刷新" FontSize="18" Margin="5" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Bottom"></TextBlock>
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Name="bar_Accept" Label="重置" Icon="Accept" Click="bar_Accept_Click" IsEnabled="False"></AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>
